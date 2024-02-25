@@ -249,7 +249,7 @@ public class PhishDialogueManager : MonoBehaviour
         Debug.Log("Background speed is set to: " + MyBackground.variableMoveSpeed);
 
         Hearts.GetComponent<HeartsCount>().ShowHearts();
-        heartsCount.heartsLeft = 2;
+        heartsCount.heartsLeft = 3;
 
         nameText.text = phishDialogue.name;
 
