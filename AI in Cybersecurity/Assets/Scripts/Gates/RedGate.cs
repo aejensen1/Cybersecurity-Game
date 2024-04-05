@@ -21,4 +21,9 @@ public class RedGate : MonoBehaviour
             Gate.SetActive(false);
         }
     }
+
+    public void ActivateGate()
+    {
+        Gate.SetActive(true);
+    }
 }

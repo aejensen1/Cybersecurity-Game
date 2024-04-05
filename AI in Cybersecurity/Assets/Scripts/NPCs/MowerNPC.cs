@@ -8,7 +8,7 @@ public class MowerNPC : MonoBehaviour
     public GameObject Mower;
     public Animator animator;
     public Player MyPlayer;
-
+    public GameObject RedGate;
 
     void Start()
     {
@@ -25,6 +25,7 @@ public class MowerNPC : MonoBehaviour
                 Mower.GetComponent<DialogueTrigger>().TriggerDialogue();
                 //Mower.GetComponent<PhishDialogueTrigger>().PhishTriggerDialogue();
                 MyPlayer.progression = 3;
+                RedGate.GetComponent<RedGate>().ActivateGate();
             }
         }
     }
