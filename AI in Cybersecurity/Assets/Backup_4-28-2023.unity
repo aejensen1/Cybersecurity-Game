@@ -1555,6 +1555,8 @@ MonoBehaviour:
   Jerry: {fileID: 92934107}
   animator: {fileID: 92934113}
   MyPlayer: {fileID: 914252113}
+  BlueGate: {fileID: 568091983}
+  YellowGate: {fileID: 847073307}
 --- !u!114 &92934116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1579,7 +1581,12 @@ MonoBehaviour:
     - And off the record, you really should leave the way you came and save yourself!!!
   dialogue2:
     name: 
-    sentences: []
+    sentences:
+    - What? There is no way you are real
+    - You should have been sent off to quarantine! Spikatron will not tolerate this
+      act of defiance.
+    - Now stop distacting me. I'm currently deep in process of obfuscating my attack.
+    - If you get lost, Roombot will help you out.
   MyPlayer: {fileID: 914252113}
 --- !u!1 &99212631
 GameObject:
@@ -2095,6 +2102,7 @@ MonoBehaviour:
   Keith: {fileID: 99212631}
   animator: {fileID: 99212637}
   MyPlayer: {fileID: 914252113}
+  RedGate: {fileID: 2017890075}
 --- !u!114 &99212639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11844,6 +11852,8 @@ MonoBehaviour:
   AlleyStranger: {fileID: 404145388}
   animator: {fileID: 404145393}
   MyPlayer: {fileID: 914252113}
+  OrangeGate: {fileID: 1234007883}
+  GrayGate: {fileID: 1141501098}
 --- !u!114 &404145396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15413,6 +15423,8 @@ MonoBehaviour:
   Mack: {fileID: 632855598}
   animator: {fileID: 632855603}
   MyPlayer: {fileID: 914252113}
+  RedGate: {fileID: 2017890075}
+  GreenGate: {fileID: 287837161}
 --- !u!114 &632855606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15436,7 +15448,11 @@ MonoBehaviour:
       she can help you find where all that lost data went.
   dialogue2:
     name: 
-    sentences: []
+    sentences:
+    - Can't get enough of me?
+    - Ok, so Amy opened a gate?
+    - Try checking the alleyway to my right.
+    - But uh.. Just be careful
   MyPlayer: {fileID: 914252113}
 --- !u!1 &675965879
 GameObject:
@@ -58531,8 +58547,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RobotGuard: {fileID: 933830151}
   animator: {fileID: 933830156}
-  aiGizmo: {fileID: 0}
+  aiGizmo: {fileID: 683735060}
   MyPlayer: {fileID: 914252113}
+  GrayGate: {fileID: 1141501098}
+  BlueGate: {fileID: 568091983}
 --- !u!114 &933830159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112526,11 +112544,11 @@ MonoBehaviour:
   AlarmTrack: {fileID: 8300000, guid: 06e45f9de87d7ea4db91a2a2454d8b86, type: 3}
   SoundManager: {fileID: 532302946}
   Roombot: {fileID: 1491203010}
-  BlueGate: {fileID: 568091983}
   animator: {fileID: 1491203015}
   alarmAnimator: {fileID: 1404472944}
   switchAnimator: {fileID: 1759671539}
   MyPlayer: {fileID: 914252113}
+  PurpleGate: {fileID: 1442555217}
 --- !u!114 &1491203018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112725,7 +112743,7 @@ MonoBehaviour:
   Mower: {fileID: 1519429866}
   animator: {fileID: 1519429871}
   MyPlayer: {fileID: 914252113}
-  RedGate: {fileID: 2017890075}
+  OrangeGate: {fileID: 1234007883}
 --- !u!60 &1519429873
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -114683,6 +114701,7 @@ MonoBehaviour:
   SoundManager: {fileID: 532302946}
   alarmSwitch: {fileID: 1759671538}
   popUp: {fileID: 1151735807}
+  BrownGate: {fileID: 1541065338}
   alarmAnimator: {fileID: 1404472944}
   switchAnimator: {fileID: 1759671539}
   MyPlayer: {fileID: 914252113}
@@ -115350,8 +115369,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1864819596}
   - component: {fileID: 1864819595}
-  - component: {fileID: 1864819594}
   - component: {fileID: 1864819598}
+  - component: {fileID: 1864819594}
   - component: {fileID: 1864819597}
   m_Layer: 0
   m_Name: CM StateDrivenCamera1
@@ -115472,7 +115491,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1864819593}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b3de6ff50a16f448a27ea368f3a66f2, type: 3}
+  m_Script: {fileID: 11500000, guid: ef209e63ff837294a9eed05f6e28def4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MyBackground: {fileID: 739035127}

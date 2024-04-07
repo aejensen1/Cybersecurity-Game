@@ -59,7 +59,7 @@ public class AIGizmo : MonoBehaviour
                 }
                 else if(MyPlayer.progression == 13)
                 {
-                    PocketAI.GetComponent<DialogueTrigger>().TriggerDialogue();
+                    PocketAI.GetComponent<DialogueTrigger>().TriggerDialogue(1);
                 }
             }
 
@@ -89,19 +89,19 @@ public class AIGizmo : MonoBehaviour
         activeStatus = true;
         PocketAI.GetComponent<Canvas>().enabled = true;
         CloseInteractables();
-        animator.SetInteger("BodySlide", 0);
+        if (animator.GetInteger("BodySlide") != 3) // Make it so that after a successful hack, the terminal does not reset
+        {
+            animator.SetInteger("BodySlide", 0);
+        }
         MyBackground.variableMoveSpeed = MyBackground.normalMoveSpeed;
         Debug.Log("PocketAI triggered");
     }
 
     void TerminalIdle()
     {
-        if (animator.GetInteger("BodySlide") < 3)
-        {
-            animator.SetBool("TerminalOpen", true);
-            animator.SetBool("HideAll", false);
-            MyBackground.variableMoveSpeed = 0;
-        }
+        animator.SetBool("TerminalOpen", true);
+        animator.SetBool("HideAll", false);
+        MyBackground.variableMoveSpeed = 0;
     }
 
     void CloseInteractables()

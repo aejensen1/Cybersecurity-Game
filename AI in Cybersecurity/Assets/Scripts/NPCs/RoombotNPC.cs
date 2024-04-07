@@ -9,12 +9,12 @@ public class RoombotNPC : MonoBehaviour
     public AudioManager SoundManager;
 
     public GameObject Roombot;
-    public GameObject BlueGate;
 
     public Animator animator;
     public Animator alarmAnimator;
     public Animator switchAnimator;
     public Player MyPlayer;
+    public GameObject PurpleGate;
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +33,7 @@ public class RoombotNPC : MonoBehaviour
                 {
                     SoundManager.GetComponent<AudioManager>().ChangeBGM(AlarmTrack);
                 }
-                Roombot.GetComponent<DialogueTrigger>().TriggerDialogue();
-                BlueGate.GetComponent<BlueGate>().ActivateGate();
+                Roombot.GetComponent<DialogueTrigger>().TriggerDialogue(1);
                 MyPlayer.progression = 10;
                 alarmAnimator.SetTrigger("Alarm");
                 switchAnimator.SetTrigger("Alarm");
@@ -45,20 +44,21 @@ public class RoombotNPC : MonoBehaviour
         {
             if (animator.GetBool("RoombotContact") && Input.GetKeyDown(KeyCode.E))
             {
-                Roombot.GetComponent<DialogueTrigger>().TriggerDialogue();
+                Roombot.GetComponent<DialogueTrigger>().TriggerDialogue(1);
+                PurpleGate.GetComponent<PurpleGate>().DeactivateGate(); // Open purple gate after dialogue
             }
         }
         else if (MyPlayer.progression == 11)
         {
             if (animator.GetBool("RoombotContact") && Input.GetKeyDown(KeyCode.E))
             {
-                Roombot.GetComponent<DialogueTrigger>().TriggerDialogue();
+                Roombot.GetComponent<DialogueTrigger>().TriggerDialogue(2);
                 animator.SetBool("RoombotContact", false);
             }
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other) //triggers when player touches something
+    void OnTriggerEnter2D(Collider2D other) // Triggers when player touches Roombot
     {
         if (MyPlayer.progression < 12)
         {
@@ -70,7 +70,7 @@ public class RoombotNPC : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D other) //triggers when player touches something
+    void OnTriggerExit2D(Collider2D other) // Triggers when player stops touching Roombot
     {
         if (MyPlayer.progression < 12)
         {

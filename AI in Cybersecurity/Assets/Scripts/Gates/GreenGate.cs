@@ -13,12 +13,13 @@ public class GreenGate : MonoBehaviour
         Gate.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DeactivateGate()
     {
-        if (MyPlayer.progression == 2)
-        {
-            Gate.SetActive(false);
-        }
+        Gate.SetActive(false);
+    }
+
+    public void ActivateGate()
+    {
+        Gate.SetActive(true);
     }
 }

@@ -8,7 +8,7 @@ public class KeithNPC : MonoBehaviour
     public GameObject Keith;
     public Animator animator;
     public Player MyPlayer;
-
+    public GameObject RedGate;
 
     void Start()
     {
@@ -22,8 +22,9 @@ public class KeithNPC : MonoBehaviour
         {
             if (animator.GetBool("KeithContact") && Input.GetKeyDown(KeyCode.E))
             {
-                Keith.GetComponent<DialogueTrigger>().TriggerDialogue();
+                Keith.GetComponent<DialogueTrigger>().TriggerDialogue(1);
                 MyPlayer.progression = 1;
+                RedGate.GetComponent<RedGate>().DeactivateGate(); // Open red gate when dialogue is over
             }
         }
     }

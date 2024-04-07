@@ -460,12 +460,12 @@ public class DialogueManager : MonoBehaviour
         {
             MyPlayer.progression = 15;
             healthAnim.SetTrigger("OffScreen");
-            Spikatron.GetComponent<DialogueTrigger>().TriggerDialogue();
+            Spikatron.GetComponent<DialogueTrigger>().TriggerDialogue(2);
         }
         else if (nameText.text == "AI Gizmo" && MyPlayer.progression < 15) //Begin final boss questions
         {
             MyPlayer.progression = 14;
-            AIGizmo.GetComponent<DialogueTrigger>().TriggerDialogue();
+            AIGizmo.GetComponent<DialogueTrigger>().TriggerDialogue(2);
         }
         else if (nameText.text == "Spikatron" && MyPlayer.progression < 16) //Done introducing Spikatron. Now prompting health bar to show.
         {

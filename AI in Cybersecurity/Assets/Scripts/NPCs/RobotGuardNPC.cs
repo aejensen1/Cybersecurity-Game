@@ -9,7 +9,8 @@ public class RobotGuardNPC : MonoBehaviour
     public Animator animator;
     public Animator aiGizmo;
     public Player MyPlayer;
-
+    public GameObject GrayGate;
+    public GameObject BlueGate;
 
     void Start()
     {
@@ -19,16 +20,26 @@ public class RobotGuardNPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (MyPlayer.progression == 5 || MyPlayer.progression == 7)
+        if (MyPlayer.progression == 5)
         {
             if (animator.GetBool("RobotGuardContact") && Input.GetKeyDown(KeyCode.E))
             {
-                RobotGuard.GetComponent<DialogueTrigger>().TriggerDialogue();
+                RobotGuard.GetComponent<DialogueTrigger>().TriggerDialogue(1);
+                GrayGate.GetComponent<GrayGate>().ActivateGate(); // Close gray gate to prevent the player from going back
+            }
+        }
+        if (MyPlayer.progression == 7)
+        {
+            if (animator.GetBool("RobotGuardContact") && Input.GetKeyDown(KeyCode.E))
+            {
+                RobotGuard.GetComponent<DialogueTrigger>().TriggerDialogue(2);
+                BlueGate.GetComponent<BlueGate>().DeactivateGate(); // Open blue gate after dialogue
+                aiGizmo.SetInteger("BodySlide", 0); // Reset the terminal once dialogue is over
             }
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other) //triggers when player touches something
+    void OnTriggerEnter2D(Collider2D other) // Triggers when player touches robot guard
     {
         if (MyPlayer.progression < 8)
         {
@@ -40,7 +51,7 @@ public class RobotGuardNPC : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D other) //triggers when player touches something
+    void OnTriggerExit2D(Collider2D other) // Triggers when player stops touching robot guard
     {
         if (MyPlayer.progression < 8)
         {

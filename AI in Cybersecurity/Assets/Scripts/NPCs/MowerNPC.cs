@@ -8,7 +8,7 @@ public class MowerNPC : MonoBehaviour
     public GameObject Mower;
     public Animator animator;
     public Player MyPlayer;
-    public GameObject RedGate;
+    public GameObject OrangeGate;
 
     void Start()
     {
@@ -22,15 +22,15 @@ public class MowerNPC : MonoBehaviour
         {
             if (animator.GetBool("MowerContact") && Input.GetKeyDown(KeyCode.E))
             {
-                Mower.GetComponent<DialogueTrigger>().TriggerDialogue();
+                Mower.GetComponent<DialogueTrigger>().TriggerDialogue(1);
                 //Mower.GetComponent<PhishDialogueTrigger>().PhishTriggerDialogue();
                 MyPlayer.progression = 3;
-                RedGate.GetComponent<RedGate>().ActivateGate();
+                OrangeGate.GetComponent<OrangeGate>().DeactivateGate(); // Open orange gate when dialogue is over
             }
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other) //triggers when player touches something
+    void OnTriggerEnter2D(Collider2D other) // Triggers when player touches mower
     {
         if (MyPlayer.progression < 4)
         {
@@ -42,7 +42,7 @@ public class MowerNPC : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D other) //triggers when player touches something
+    void OnTriggerExit2D(Collider2D other) // Triggers when player stops touching mower
     {
         if (MyPlayer.progression < 4)
         {

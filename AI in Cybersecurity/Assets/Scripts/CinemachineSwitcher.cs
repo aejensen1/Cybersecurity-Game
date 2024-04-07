@@ -75,7 +75,7 @@ public class CinemachineSwitcher : MonoBehaviour
     {
         Debug.Log("Waiting " + seconds + " seconds");
         yield return new WaitForSeconds(seconds);
-        Debug.Log("Done Waiting. No changing camera to Player...");
+        Debug.Log("Done Waiting. Now changing camera to Player...");
         animator.Play("PlayerCamera");
 
         yield return new WaitForSeconds(2);
@@ -85,7 +85,7 @@ public class CinemachineSwitcher : MonoBehaviour
         //spikatronAnim.SetTrigger("SpikatronMove");
 
         //SpikatronHealthBar.GetComponent<HealthManager>().ActivateHealthBar();
-        Spikatron.GetComponent<DialogueTrigger>().TriggerDialogue();
+        Spikatron.GetComponent<DialogueTrigger>().TriggerDialogue(1);
 
     }
 

@@ -8,7 +8,8 @@ public class JerryNPC : MonoBehaviour
     public GameObject Jerry;
     public Animator animator;
     public Player MyPlayer;
-
+    public GameObject BlueGate;
+    public GameObject YellowGate;
 
     void Start()
     {
@@ -22,13 +23,23 @@ public class JerryNPC : MonoBehaviour
         {
             if (animator.GetBool("JerryContact") && Input.GetKeyDown(KeyCode.E))
             {
-                Jerry.GetComponent<DialogueTrigger>().TriggerDialogue();
+                Jerry.GetComponent<DialogueTrigger>().TriggerDialogue(1);
                 MyPlayer.progression = 9;
+                BlueGate.GetComponent<BlueGate>().ActivateGate(); // Close blue gate to prevent the player from going back
+                YellowGate.GetComponent<YellowGate>().DeactivateGate(); // Open yellow gate after dialogue
+            }
+        }
+        else if (MyPlayer.progression == 11)
+        {
+            if (animator.GetBool("JerryContact") && Input.GetKeyDown(KeyCode.E))
+            {
+                Jerry.GetComponent<DialogueTrigger>().TriggerDialogue(2);
+                animator.SetBool("JerryContact", false);
             }
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other) //triggers when player touches something
+    void OnTriggerEnter2D(Collider2D other) // Triggers when player touches Jerry
     {
         if (MyPlayer.progression < 10)
         {
@@ -40,7 +51,7 @@ public class JerryNPC : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D other) //triggers when player touches something
+    void OnTriggerExit2D(Collider2D other) // Triggers when player stops touching Jerry
     {
         if (MyPlayer.progression < 10)
         {

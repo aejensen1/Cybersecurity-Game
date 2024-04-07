@@ -65,8 +65,8 @@ public class wsadInstructions : MonoBehaviour
         arrowKeys.CrossFadeAlpha(0f, m_fadeDuration, m_ignoreTimeScale);
     }
 
-    public void StartFade()
-    {
-        Instructions.SetActive(true);
-    }
+    //public void StartFade()
+    //{
+    //    Instructions.SetActive(true);
+    //}
 }

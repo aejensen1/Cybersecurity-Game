@@ -8,6 +8,7 @@ public class Switch : MonoBehaviour
 
     public GameObject alarmSwitch;
     public GameObject popUp;
+    public GameObject BrownGate;
 
     public Animator alarmAnimator;
     public Animator switchAnimator;
@@ -34,11 +35,12 @@ public class Switch : MonoBehaviour
                 //aiGizmoAnim.SetTrigger("CloseTerminal");
                 switchAnimator.SetBool("SwitchContact", false);
                 popUp.GetComponent<MalwareWrong>().AntivirusDisabled();
+                BrownGate.GetComponent<BrownGate>().DeactivateGate(); // Open brown gate after dialogue
             }
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other) //triggers when player touches something
+    void OnTriggerEnter2D(Collider2D other) // Triggers when player touches switch
     {
         if (MyPlayer.progression < 11)
         {
@@ -49,7 +51,7 @@ public class Switch : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D other) //triggers when player touches something
+    void OnTriggerExit2D(Collider2D other) // Triggers when player touches switch
     {
         if (MyPlayer.progression < 11)
         {

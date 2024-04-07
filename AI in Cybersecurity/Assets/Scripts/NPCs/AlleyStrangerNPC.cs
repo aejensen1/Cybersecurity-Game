@@ -8,6 +8,8 @@ public class AlleyStrangerNPC : MonoBehaviour
     public GameObject AlleyStranger;
     public Animator animator;
     public Player MyPlayer;
+    public GameObject OrangeGate;
+    public GameObject GrayGate;
 
 
     void Start()
@@ -22,8 +24,10 @@ public class AlleyStrangerNPC : MonoBehaviour
         {
             if (animator.GetBool("AlleyStrangerContact") && Input.GetKeyDown(KeyCode.E))
             {
-                AlleyStranger.GetComponent<DialogueTrigger>().TriggerDialogue();
+                AlleyStranger.GetComponent<DialogueTrigger>().TriggerDialogue(1);
                 MyPlayer.progression = 5;
+                OrangeGate.GetComponent<OrangeGate>().ActivateGate(); // Close orange gate to prevent the player from going back
+                GrayGate.GetComponent<GrayGate>().DeactivateGate(); // Open gray gate when dialogue is over
             }
         }
     }
