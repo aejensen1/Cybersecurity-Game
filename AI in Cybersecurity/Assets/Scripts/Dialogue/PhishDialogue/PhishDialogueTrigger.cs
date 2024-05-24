@@ -11,5 +11,10 @@ public class PhishDialogueTrigger : MonoBehaviour
     {
         FindObjectOfType<PhishDialogueManager>().StartPhishDialogue(phishDialogue);
     }
+
+    public void PhishTriggerExplanation()
+    {
+        //FindObjectOfType<PhishDialogueManager>().StartPhishExplanation(phishDialogue);
+    }
     
 }

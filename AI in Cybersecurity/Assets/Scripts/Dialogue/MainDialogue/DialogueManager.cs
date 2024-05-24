@@ -23,6 +23,8 @@ public class DialogueManager : MonoBehaviour
     public Player MyPlayer;
     public HealthManager SpikatronHealth;
 
+    public bool active;
+
     private Queue<string> sentences;
     string currentSentence;
 
@@ -35,344 +37,347 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
+        active = true;
     }
 
     void Update()
     {
-        //For skipping the text delay
-        if (dialogueText.text == currentSentence)
+        //Debug.Log("is active: " + active);
+        if (active)
         {
-            if (MyPlayer.progression != 14)
+            //For skipping the text delay
+            if (dialogueText.text == currentSentence)
+            {
+                if (MyPlayer.progression != 14)
+                {
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        DisplayNextSentence();
+                    }
+                }
+                else //Final Boss Question calls Spikatron health functions
+                {
+                    if (Input.GetKeyDown(KeyCode.Y)) //If player enters Yes
+                    {
+                        Debug.Log("Question: " + slide);
+                        if (slide == 0)
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 1)
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 2)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 3)
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 4)
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 5)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 6)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 7)
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 8)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 9)
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 10)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 11)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 12)
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 13)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 14)
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 15)
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 16)
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 17)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 18)
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 19)
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 20)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 21)
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 22)
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 23)
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 24)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 25)
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 26)
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 27)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 28)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 29)
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        DisplayNextSentence();
+                    }
+                    else if (Input.GetKeyDown(KeyCode.N)) //If Player enters no
+                    {
+                        Debug.Log("Question: " + slide);
+                        if (slide == 0)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 1)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 2)//
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 3)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 4)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 5)//
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 6)//
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 7)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 8)//
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 9)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 10)//
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 11)//
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 12)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 13)//
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 14)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 15)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 16)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 17)//
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 18)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 19)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 20)//
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 21)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 22)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 23)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 24)//
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 25)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 26)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        else if (slide == 27)//
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 28)//
+                        {
+                            HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
+                            Debug.Log("Correct Answer!");
+                        }
+                        else if (slide == 29)
+                        {
+                            HealthManager.GetComponent<HealthManager>().Heal(5f);
+                            Debug.Log("Incorrect Answer!");
+                        }
+                        DisplayNextSentence();
+                    }
+                }
+            }
+            else
             {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    DisplayNextSentence();
-                }
-            }
-            else //Final Boss Question calls Spikatron health functions
-            {
-                if (Input.GetKeyDown(KeyCode.Y)) //If player enters Yes
-                {
-                    Debug.Log("Question: " + slide);
-                    if (slide == 0)
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 1)
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 2)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 3)
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 4)
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 5)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 6)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 7)
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 8)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 9)
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 10)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 11)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 12)
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 13)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 14)
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 15)
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 16)
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 17)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 18)
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 19)
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 20)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 21)
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 22)
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 23)
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 24)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 25)
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 26)
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 27)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 28)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 29)
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    DisplayNextSentence();
-                }
-                else if (Input.GetKeyDown(KeyCode.N)) //If Player enters no
-                {
-                    Debug.Log("Question: " + slide);
-                    if (slide == 0)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 1)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 2)//
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 3)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 4)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 5)//
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 6)//
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 7)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 8)//
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 9)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 10)//
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 11)//
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 12)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 13)//
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 14)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 15)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 16)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 17)//
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 18)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 19)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 20)//
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 21)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 22)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 23)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 24)//
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 25)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 26)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    else if (slide == 27)//
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 28)//
-                    {
-                        HealthManager.GetComponent<HealthManager>().TakeDamage(5f);
-                        Debug.Log("Correct Answer!");
-                    }
-                    else if (slide == 29)
-                    {
-                        HealthManager.GetComponent<HealthManager>().Heal(5f);
-                        Debug.Log("Incorrect Answer!");
-                    }
-                    DisplayNextSentence();
+                    dialogueText.text = "";
+                    dialogueText.text = currentSentence;
                 }
             }
         }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                dialogueText.text = "";
-                dialogueText.text = currentSentence;
-            }
-        }
-        
-
     }
 
     public void StartDialogue (Dialogue dialogue)
@@ -431,7 +436,7 @@ public class DialogueManager : MonoBehaviour
     {
         MyBackground.variableMoveSpeed = MyBackground.normalMoveSpeed;
         animator.SetBool("IsOpen", false);
-        Debug.Log("closing dialogue");
+        Debug.Log("closing normal dialogue");
 
         if (nameText.text == "Amy") //Finishes normal dialogue. Start Phish Dialogue/quiz
         {
@@ -474,5 +479,15 @@ public class DialogueManager : MonoBehaviour
         }
 
         //nameText.text = ""; //Clear name text
+    }
+
+    public void PauseDialogue()
+    {
+        active = false;
+    }
+
+    public void ResumeDialogue()
+    {
+        active = true;
     }
 }

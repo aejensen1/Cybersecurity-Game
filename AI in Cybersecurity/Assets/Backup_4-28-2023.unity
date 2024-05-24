@@ -15742,6 +15742,11 @@ MonoBehaviour:
   Malware: {fileID: 1151735807}
   heartsCount: {fileID: 1888371310}
   malwareWrong: {fileID: 1151735810}
+  dialogueManager: {fileID: 1920366650}
+  phishDialogueValue:
+    name: 
+    sentences: []
+    explanations: []
 --- !u!1 &712222062
 GameObject:
   m_ObjectHideFlags: 0
@@ -113007,6 +113012,102 @@ MonoBehaviour:
     - What? You don't understand?
     - Hmm, well just look for the alleyway gate I just opened along the road outside
       of the entrance of the maze.
+    explanations:
+    - sentences:
+      - This email is not malicious. PayPal is a legitimate and popular company that
+        manages finances, banking, and crypto.
+      - It is notifying the user that the cypto services will be down and has no
+        urgent message that action needs to be taken.
+      - They provide links for questions and complaints but this doesn't mean it
+        is malicious.
+      - Alright, next question...
+    - sentences:
+      - 'Right away, it can be seen that SAFTY is a misspelling of safety and there
+        is another misspelling of "fever,coughshortness". '
+      - This is common for people that do not know english as their first language.
+      - The WHO would have emails that are fluent in the language of the recipient.
+        Also notice that there is no sender address. Only the nickname "World Health
+        Organization" is shown.
+      - The sender could be anyone, anywhere. They also are directing you to a button.
+        This would direct you to a malicious website.
+      - Alright, next question...
+    - sentences:
+      - This is a true positive malicious email. The sender is using a gmail account,
+        which is less common for businesses and the name prefix is also unprofessional.
+      - There is no recipient name in the introduction - just "Hello." This is common
+        in spam email templates, likely sent to hundreds or thousands of people like
+        you.
+      - The email is trying to entice the receiver to contact them with money. Always
+        do research on a business you are thinking to apply for, because it could
+        be someone scamming you.
+      - Alright, next question...
+    - sentences:
+      - 'This is a false positive. This message is not malicious, but actually a
+        subscription email. '
+      - Whoever received this email is subscribed to emails promoting webinars from
+        Encoursa.
+      - Encoursa is a real company that provides continuing professional education
+        and webinars, the sender address is not suspicious, and there is no urgency
+        to take action.
+      - Alright, next question...
+    - sentences:
+      - This is a malicious email. PayPal is a legitimate trusted company, but the
+        logo is old and outdated, and the sender is some random gmail address.
+      - There isn't even a name in the introduction.
+      - The email indicates that you should click the button as soon as possible
+        but this button will not improve your security but break through it.
+      - Alright, next question...
+    - sentences:
+      - This email is not malicious. Although the sender's address is lengthy, the
+        domain is microsoft.com, which is a highly reputable company.
+      - Microsoft wants to keep your accounts secure and these emails are not uncommon
+        if you login to mutiple devices and accounts with the microsoft account.
+      - If you are unsure if an email is malicious or not, do some research. What
+        is this sender address? Why did I get this email?
+      - Alright, next question...
+    - sentences:
+      - 'This email is not malicious. It is a sales email that reaches out to a person
+        named "John". The sender wants John to schedule a marketing consultation. '
+      - It states there is no obligation, so there is no urgency. Although this can
+        be considered spam, it is not necessarily malicious.
+      - Alright, next question...
+    - sentences:
+      - 'This email is malicious, and the sender used a sneaky tactic to trick you.
+        A keen eye will notice that the email address is missing a letter: "secure@suntust.com"'
+      - suntust.com is not the official website for SunTrust, and could be owned
+        by someone else, such as an attacker.
+      - If you hover over the link, you will find that it was shortened. In the bottom
+        left a popup indicates that the link actually leads to bit.ly. Once again,
+        This is trickery that must be looked for.
+      - Alright, next question...
+    - sentences:
+      - Similar to a previous email, this is a sales email. It may be spam, but not
+        necessarily malicious.
+      - There is no link to be clicked and it is telling the recipient that there
+        will be a followup email.
+      - If there is any doubt, research the company, sender, and email to see if
+        they are real.
+      - Alright, next question...
+    - sentences:
+      - This email is definitely malicious. To start the email immediately asks you
+        to send of crypto, which is an international currency.
+      - There is no name in the introduction, which is common for spam email templates,
+        which can be sent in bulk to thousands of people.
+      - This email preys on the reciever's emotions to make it sound like sending
+        the money is life or death. This urgency should be considered highly suspicious.
+      - In general principle, never give your money away unless you know and trust
+        the person or business you are sending it to.
+      - Alright, next question...
+    - sentences:
+      - This email is malicious. It is being sent from a random hotmail account,
+        which is very unprofessional, and uncommon.
+      - This is what would be considered a Business Email Compromise (BEC) attack
+        as this template of asking for money without verification is common in the
+        business industry.
+      - 'It''s easy to just send the money over, but doing so can be catostrophic. '
+      - Make sure you know and trust the person, but also verify with them over the
+        phone in case their account was compromised before sending money.
+      - Alright, next question...
 --- !u!1 &1529664409
 GameObject:
   m_ObjectHideFlags: 0
@@ -116325,6 +116426,7 @@ MonoBehaviour:
   MyBackground: {fileID: 739035127}
   MyPlayer: {fileID: 914252113}
   SpikatronHealth: {fileID: 1718608101}
+  active: 0
 --- !u!4 &1920366651
 Transform:
   m_ObjectHideFlags: 0
